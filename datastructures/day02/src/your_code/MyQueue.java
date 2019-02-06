@@ -16,9 +16,7 @@ public class MyQueue<T> implements QueueADT<T> {
     }
 
     @Override
-    public void enqueue(T item) {
-        ll.add(item);
-    }
+    public void enqueue(T item) { ll.add(item); }
 
     @Override
     public T dequeue() {
