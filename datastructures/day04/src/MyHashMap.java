@@ -53,10 +53,14 @@ public class MyHashMap<K, V> implements Map<K, V> {
         // TODO
         // hint: use key.hashCode() to calculate the key's hashCode using its built in hash function
         // then use % to choose which bucket to return.
+<<<<<<< HEAD
         //System.out.print(buckets);
 
         int idx = key.hashCode() % buckets.length;
         return buckets[idx];
+=======
+        return null;
+>>>>>>> 170e3eaa258ce07b5f451e12f0bc2740ef342c15
     }
 
     @Override
@@ -75,6 +79,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
     @Override
     public boolean containsKey(Object key) {
         // TODO
+<<<<<<< HEAD
         LinkedList<Entry> bucket = chooseBucket(key);
         for(int i = 0; i < bucket.size(); i++) {
             if (bucket.peekFirst().key .equals(key)) {
@@ -84,6 +89,8 @@ public class MyHashMap<K, V> implements Map<K, V> {
             bucket.removeFirst();
             bucket.addLast(temp);
         }
+=======
+>>>>>>> 170e3eaa258ce07b5f451e12f0bc2740ef342c15
         return false;
     }
 
@@ -93,6 +100,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
     @Override
     public boolean containsValue(Object value) {
         // TODO
+<<<<<<< HEAD
         for(int i = 0; i < buckets.length; i++){
             for(int j = 0; j < buckets[i].size(); j++) {
                 if (buckets[i].get(j).value == value) {
@@ -100,12 +108,15 @@ public class MyHashMap<K, V> implements Map<K, V> {
                 }
             }
         }
+=======
+>>>>>>> 170e3eaa258ce07b5f451e12f0bc2740ef342c15
         return false;
     }
 
     @Override
     public V get(Object key) {
         // TODO
+<<<<<<< HEAD
         LinkedList<Entry> bucket = chooseBucket(key);
         for(int i = 0; i < bucket.size(); i++) {
             if (bucket.peekFirst().key .equals(key)) {
@@ -115,6 +126,8 @@ public class MyHashMap<K, V> implements Map<K, V> {
             bucket.removeFirst();
             bucket.addLast(temp);
         }
+=======
+>>>>>>> 170e3eaa258ce07b5f451e12f0bc2740ef342c15
         return null;
     }
 
@@ -126,6 +139,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
     public V put(K key, V value) {
         // TODO: Complete this method
         // hint: use chooseBucket() to determine which bucket to place the pair in
+<<<<<<< HEAD
         // hint: use rehash() to appropriately grow the hashmap if
         if(size  > buckets.length * ALPHA  ){rehash(GROWTH_FACTOR);}
         V val = null;
@@ -138,6 +152,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
         bucket.add(temp);
         size++;
         return val ;
+=======
+        // hint: use rehash() to appropriately grow the hashmap if needed
+        return null;
+>>>>>>> 170e3eaa258ce07b5f451e12f0bc2740ef342c15
     }
 
     /**
@@ -150,6 +168,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
         // TODO
         // hint: use chooseBucket() to determine which bucket the key would be
         // hint: use rehash() to appropriately grow the hashmap if needed
+<<<<<<< HEAD
         if(size < buckets.length * BETA ){rehash(SHRINK_FACTOR);}
         LinkedList<Entry> bucket = chooseBucket(key);
         for(int i = 0; i < bucket.size(); i++) {
@@ -164,6 +183,8 @@ public class MyHashMap<K, V> implements Map<K, V> {
             bucket.addLast(temp);
         }
 
+=======
+>>>>>>> 170e3eaa258ce07b5f451e12f0bc2740ef342c15
         return null;
     }
 
@@ -182,6 +203,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
     private void rehash(double growthFactor) {
         // TODO
         // hint: once you have removed all values from the buckets, use put(k, v) to add them back in the correct place
+<<<<<<< HEAD
         LinkedList<Entry> temp = new LinkedList<>();
         for(int i = 0; i < buckets.length; i++){
             for(int j = 0; j < buckets[i].size(); j++) {
@@ -201,6 +223,8 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
 
 
+=======
+>>>>>>> 170e3eaa258ce07b5f451e12f0bc2740ef342c15
     }
 
     private void initBuckets(int size) {

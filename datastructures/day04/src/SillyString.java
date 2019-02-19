@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+import java.util.HashMap;
+import java.util.Map;
+
+>>>>>>> 170e3eaa258ce07b5f451e12f0bc2740ef342c15
 public class SillyString {
     private final String innerString;
 
