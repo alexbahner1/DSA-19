@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Problems {
 
@@ -31,6 +28,7 @@ public class Problems {
             seen.add(j, A[i]);
             out[i] = getMedian(seen);
         }
+        System.out.println(Arrays.toString(out));
         return out;
     }
 
@@ -41,9 +39,58 @@ public class Problems {
      * @return the median of the stream, after each element has been added
      */
     public static double[] runningMedian(int[] inputStream) {
-        double[] runningMedian = new double[inputStream.length];
+        double[] runMedian = new double[inputStream.length];
         // TODO
-        return runningMedian;
+
+        if(inputStream.length == 0){return runMedian;}
+        if(inputStream.length == 1){
+            runMedian[0] = inputStream[0];
+            return runMedian;}
+        PriorityQueue<Integer> max = maxPQ();
+        PriorityQueue<Integer> min = minPQ();
+        double Med = inputStream[0];
+        for(int i =0; i < inputStream.length; i++){
+            //adding Element to max or min
+
+
+            if(inputStream[i] <= Med){
+                //System.out.println("hitmax");
+                max.add(inputStream[i]);
+            }else{
+                min.add(inputStream[i]);
+                //System.out.println("hitmin");
+            }
+//            System.out.println(max.size());
+//            System.out.println(min.size());
+            //checking size of min and max
+            if(max.size() == min.size()+2){
+                int temp = max.poll();
+                min.add(temp); }
+            if(min.size() == max.size()+2){
+                int temp = min.poll();
+                max.add(temp); }
+            System.out.println(max.size());
+            System.out.println(min.size());
+            // change median
+            if(min.size() == 0){Med = max.peek();
+            //System.out.println("max");
+            }
+            else if(max.size()==0){Med = min.peek();
+            //System.out.println("min");
+            }
+            else if(min.size() == max.size() ){
+                Med = (( (double)max.peek() + (double)min.peek() )/2);
+                System.out.println("equ");
+            }else{
+                Med = (max.size() > min.size())?max.peek():min.peek();
+                System.out.println("gre");
+            }
+            runMedian[i] = Med;
+            System.out.println("new");
+        }
+        //double[] daMedian = (double[]) Med;
+        System.out.println(Arrays.toString(runMedian));
+        return runMedian;
     }
 
 }
