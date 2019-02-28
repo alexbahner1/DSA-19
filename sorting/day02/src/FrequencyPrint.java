@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashMap;
 
+=======
+>>>>>>> 4a59ccd771a6cda53fccd697f3d4bb45a68498af
 public class FrequencyPrint {
 
     static String frequencyPrint(String s) {
         // TODO
+<<<<<<< HEAD
 
         // This  split the string into a array.
         String[] sArray = s.split(" ");
@@ -51,6 +55,9 @@ public class FrequencyPrint {
 //        System.out.println(ItoSmap.get(2));
         System.out.println(fids);
         return fids;
+=======
+        return "";
+>>>>>>> 4a59ccd771a6cda53fccd697f3d4bb45a68498af
     }
 
 }
