@@ -50,12 +50,56 @@ public class PeakFinding {
 
     public static int findOneDPeak(int[] nums) {
         // TODO
-        return 0;
+        int mid = (nums.length / 2);
+//
+//
+//        if ((mid == 0 || nums[mid - 1] <= nums[mid]) && (mid == nums.length - 1 || nums[mid + 1] <= nums[mid])) {
+//            return mid;
+//
+//
+//        } else if (mid > 0 && nums[mid - 1] > nums[mid]){
+//            return findOneDPeak(nums);
+//
+//
+//        }else {return findOneDPeak(nums);}
+        int lo = 0;
+        int hi = nums.length;
+        while(lo < hi) {
+            mid = (hi + l  o + 1)/2;
+            if (peakOneD(mid, nums) == 0) {
+                return mid;
+            } else if (peakOneD(mid, nums) == -1) {
+                hi = mid;
+            } else {
+                lo = mid;
+            }
+        }
+        return mid;
+
     }
 
     public static int[] findTwoDPeak(int[][] nums) {
         // TODO
-        return null;
+        //int max = 0;
+        //int[] max_index = new [0, 0];
+        int[] answer = new int[2];
+        int mid = nums.length/2;
+        if (peakX(nums[0].length-1, nums.length-1, nums) == 0 && peakY(nums[0].length-1,nums.length-1,nums)==0){
+            answer[0] = nums.length-1;
+            answer[1] = nums[0].length-1;
+            return answer;
+        }
+        if(mid == 0 || mid == nums.length-1){
+            answer[0] = nums.length-1;
+            answer[1] = nums.length-1;
+            return answer;
+        } else {
+            answer[0] = mid;
+            answer[1] = findOneDPeak(nums[mid]);
+
+        }
+        return answer;
+
     }
 
 }
