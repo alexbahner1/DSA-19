@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class BinarySearchTree<T extends Comparable<T>> {
@@ -29,9 +30,19 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     public List<T> inOrderTraversal() {
         // TODO
-        return null;
+        //list
+        List<T> sorted  = new ArrayList<>();
+        helpfuncIT(root, sorted);
+        return sorted;
     }
-
+    public void helpfuncIT(TreeNode<T> Node,  List<T> lst){
+        if(Node == null){
+            //System.out.println("oh Fuck");
+            return; }
+        helpfuncIT(Node.leftChild,lst);
+        lst.add(Node.key);
+        helpfuncIT(Node.rightChild,lst);
+    }
     /**
      * Deletes a node from the BST using the following logic:
      * 1. If the node has a left child, replace it with its predecessor
@@ -67,7 +78,14 @@ public class BinarySearchTree<T extends Comparable<T>> {
         else {
             // Case 3: two children
             // TODO
-            replacement = null;
+            TreeNode<T> pred = findPredecessor(n);
+            //delete(pred);
+            replacement = findPredecessor(n);
+            delete(replacement);
+            replacement.moveChildrenFrom(n);
+            ///moveChildrenFrom(n);
+            //succ = null;
+
         }
 
         // Put the replacement in its correct place, and set the parent.
@@ -103,12 +121,55 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     private TreeNode<T> findPredecessor(TreeNode<T> n) {
         // TODO
-        return null;
+        //inOrderTraversal();
+        if(n.leftChild != null){
+            TreeNode<T>  pro = Maxnode(n.leftChild);
+            return pro;
+        }
+        TreeNode<T> par = n.parent;
+        TreeNode<T> kid = n;
+        while(par != null && kid == par.leftChild){
+            kid = par;
+            par = par.parent;
+
+        }
+        return par;
+        //return null;
     }
 
     private TreeNode<T> findSuccessor(TreeNode<T> n) {
         // TODO
-        return null;
+//         List<T> lst = inOrderTraversal();
+//         lst.get(n);
+        if(n.rightChild != null){
+            TreeNode<T> succ = Minnode(n.rightChild);
+            return succ;
+        }
+        //if(n.rightChild == null){
+            TreeNode<T> par = n.parent;
+            TreeNode<T> kid = n;
+            while(par != null && kid == par.rightChild){
+                kid = par;
+                par = par.parent;
+
+            }
+            return par;
+        //}
+        //return null;
+    }
+    public TreeNode<T> Minnode(TreeNode<T> n){
+        TreeNode<T> mini = n;
+        while(mini.leftChild != null){
+            mini = mini.leftChild;
+        }
+        return mini;
+    }
+    public TreeNode<T> Maxnode(TreeNode<T> n){
+        TreeNode<T> maxa = n;
+        while(maxa.rightChild != null){
+            maxa = maxa.rightChild;
+        }
+        return maxa;
     }
 
     /**
