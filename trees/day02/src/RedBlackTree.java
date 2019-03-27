@@ -36,31 +36,83 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
     // make a left-leaning link lean to the right
     TreeNode<T> rotateRight(TreeNode<T> h) {
         // TODO
-        return h;
+        TreeNode<T> x = h.leftChild;
+        TreeNode<T> beta = x.rightChild;
+        x.rightChild = h;
+        h.leftChild = beta;
+        x.color = x.rightChild.color;
+        x.rightChild.color = RED;
+        ///x.leftChild.color = RED;
+
+
+        //n.height = 1 + Math.max(height(n.leftChild), height(n.rightChild));
+        //x.height = 1 + Math.max(height(x.leftChild), height(x.rightChild));
+        return x;
     }
 
     // make a right-leaning link lean to the left
     TreeNode<T> rotateLeft(TreeNode<T> h) {
         // TODO
-        return h;
+        TreeNode<T> y = h.rightChild;
+        TreeNode<T> beta = y.leftChild;
+        y.leftChild = h;
+        h.rightChild = beta;
+        y.color = y.leftChild.color;
+        y.leftChild.color = RED;
+
+        return y;
     }
 
     // flip the colors of a TreeNode and its two children
     TreeNode<T> flipColors(TreeNode<T> h) {
         // TODO
+        if(isRed(h)){
+            h.color = BLACK;
+        }else{
+            h.color = RED;
+        }
+        if(isRed(h.rightChild)){
+            h.rightChild.color = BLACK;
+        }else{
+            h.rightChild.color = RED;
+        }
+
+        if(isBlack(h.leftChild)){
+            h.leftChild.color = RED;
+        }else{
+            h.leftChild.color = BLACK;
+        }
         return h;
     }
 
 
     /**
      * fix three cases:
-     *   1. h.right is red
-     *   2. h.left is red, and h.left.left is red
+     *   1. h.right is red // roate left
+     *   2. h.left is red, and h.left.left is red //
      *   2. h.left and h.right are red
      * return balanced node
      */
     private TreeNode<T> balance(TreeNode<T> h) {
         // TODO
+        if(isRed(h.rightChild) && (h.leftChild == null || isBlack(h.leftChild))){
+        //if(isRed(h.rightChild)){
+            //rotateLeft(h);
+//            return rotateLeft(h);
+            h = rotateLeft(h);
+        }
+        if(isRed(h.leftChild) && isRed(h.leftChild.leftChild)){
+              //TreeNode<T> lead = rotateRight(h);
+              //flipColors(rotateRight(h));
+//             TreeNode<T> le =  flipColors(rotateRight(h));
+//              return le;
+            h = rotateRight(h);
+        }
+        if(isRed(h.rightChild) && isRed(h.leftChild)){
+            //flipColors(h);
+            flipColors(h);
+//            return h;
+        }
         return h;
     }
 
@@ -73,7 +125,7 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
     TreeNode<T> insert(TreeNode<T> h, T key) {
         h = super.insert(h, key);
         // TODO: use balance to correct for the three rotation cases
-        return h;
+        return balance(h);
     }
 
 
