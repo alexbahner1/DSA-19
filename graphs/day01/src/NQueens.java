@@ -51,6 +51,7 @@ public class NQueens {
 
     public static List<char[][]> nQueensSolutions(int n) {
         // TODO
+<<<<<<< HEAD
         char[][] board = new char[n][n];
         for(int i= 0; i < n; i++){for(int j = 0; j < n; j++){ board[i][j] = '.';}}
 
@@ -85,4 +86,10 @@ public class NQueens {
         //return false;
     }
 
+=======
+        List<char[][]> answers = new ArrayList<>();
+        return answers;
+    }
+
+>>>>>>> d26023a67aa5d4ee167cbfd4254484f332e69616
 }

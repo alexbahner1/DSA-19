@@ -1,12 +1,16 @@
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.HashMap;
+=======
+>>>>>>> d26023a67aa5d4ee167cbfd4254484f332e69616
 import java.util.List;
 
 public class CoinsOnAClock {
 
     public static List<char[]> coinsOnAClock(int pennies, int nickels, int dimes, int hoursInDay) {
         // TODO
+<<<<<<< HEAD
         int hours = hoursInDay;
 
         char[] answer = new char[hours];
@@ -73,3 +77,9 @@ public class CoinsOnAClock {
     }
 
 }
+=======
+        List<char[]> result = new ArrayList<>();
+        return result;
+    }
+}
+>>>>>>> d26023a67aa5d4ee167cbfd4254484f332e69616

@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 import java.util.*;
+=======
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+>>>>>>> d26023a67aa5d4ee167cbfd4254484f332e69616
 
 public class Permutations {
 
     public static List<List<Integer>> permutations(List<Integer> A) {
         // TODO
         List<List<Integer>> permutations = new LinkedList<>();
+<<<<<<< HEAD
         //LinkedList<Integer> unused = new LinkedList<>();
         Set<Integer> unused = new HashSet<Integer>(A);
         LinkedList<Integer> current = new LinkedList<>();
@@ -49,4 +56,9 @@ public class Permutations {
         }
     }
 
+=======
+        return permutations;
+    }
+
+>>>>>>> d26023a67aa5d4ee167cbfd4254484f332e69616
 }
