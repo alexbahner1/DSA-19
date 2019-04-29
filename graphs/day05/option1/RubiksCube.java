@@ -1,14 +1,21 @@
+<<<<<<< HEAD
 import java.lang.reflect.Array;
+=======
+>>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 // use this class if you are designing your own Rubik's cube implementation
 public class RubiksCube {
+<<<<<<< HEAD
     public HashMap<String, int[]> faces;
+=======
+>>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
 
     // initialize a solved rubiks cube
     public RubiksCube() {
         // TODO
+<<<<<<< HEAD
         HashMap<String, int[]> faces = new HashMap<>();
         String[] names = new String []{"front", "back", "left", "right", "top", "bottom"};
         for(int i=0; i< 6; i++){
@@ -36,6 +43,11 @@ public class RubiksCube {
         }
 
     }
+=======
+    }
+
+
+>>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
     // creates a copy of the rubics cube
     public RubiksCube(RubiksCube r) {
         // TODO
@@ -68,6 +80,7 @@ public class RubiksCube {
 
     public boolean isSolved() {
         // TODO
+<<<<<<< HEAD
         String[] names = new String []{"front", "back", "left", "right", "top", "bottom"};
 
         if (faces.get(names[1]) != faces.get(name [1])){return false;}
@@ -80,6 +93,10 @@ public class RubiksCube {
     }
         return false;
 
+=======
+        return false;
+    }
+>>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
 
 
     // given a list of rotations, return a rubik's cube with the rotations applied
@@ -108,6 +125,7 @@ public class RubiksCube {
         }
         return r;
     }
+<<<<<<< HEAD
     public void rotrightclock(){
         String[] names = new String []{"front", "back", "left", "right", "top", "bottom"};
         faces
@@ -117,6 +135,8 @@ public class RubiksCube {
 
     }
 }
+=======
+>>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
 
     public static char[] getScramble(int size){
         char[] listTurns = new char[size];
@@ -152,8 +172,15 @@ public class RubiksCube {
         return new ArrayList<>();
     }
 
+<<<<<<< HEAD
     public static void main(String[] args){
         RubiksCube cube = new RubiksCube();
 
         printCube(cube.faces);
     }
+=======
+}
+
+
+
+>>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
