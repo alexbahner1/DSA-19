@@ -8,6 +8,7 @@ public class RubiksCube {
 
     private BitSet cube;
 <<<<<<< HEAD
+<<<<<<< HEAD
     public int minMoves = -1;
     private State solutionState;
     private boolean solved = false;
@@ -15,10 +16,13 @@ public class RubiksCube {
 =======
     private HashMap<Integer, HashMap<Integer, Integer>> distances;
 >>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
+=======
+>>>>>>> 977210869216e783e94af0f7faa4a7a916b08eb6
 
     // initialize a solved rubiks cube
     public RubiksCube() {
         // 24 colors to store, each takes 3 bits
+<<<<<<< HEAD
 <<<<<<< HEAD
         cube = new BitSet(24 * 3);
         for (int side = 0; side < 6; side++) {
@@ -30,10 +34,17 @@ public class RubiksCube {
             for (int i = 0; i < 4; i++) {
                 setColor(side * 4 + i, side * 4 + i);
 >>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
+=======
+        cube = new BitSet(24 * 3);
+        for (int side = 0; side < 6; side++) {
+            for (int i = 0; i < 4; i++) {
+                setColor(side * 4 + i, side);
+>>>>>>> 977210869216e783e94af0f7faa4a7a916b08eb6
             }
         }
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public void populate_hm(){
@@ -51,6 +62,8 @@ public class RubiksCube {
     }
 
 >>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
+=======
+>>>>>>> 977210869216e783e94af0f7faa4a7a916b08eb6
     // initialize a rubiks cube with the input bitset
     private RubiksCube(BitSet s) {
         cube = (BitSet) s.clone();
@@ -93,6 +106,7 @@ public class RubiksCube {
     private static int bitsetToInt(BitSet s) {
         int i = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (s.get(0)) i |= 4;
         if (s.get(1)) i |= 2;
         if (s.get(2)) i |= 1;
@@ -103,11 +117,17 @@ public class RubiksCube {
         if (s.get(3)) i |= 2;
         if (s.get(4)) i |= 1;
 >>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
+=======
+        if (s.get(0)) i |= 4;
+        if (s.get(1)) i |= 2;
+        if (s.get(2)) i |= 1;
+>>>>>>> 977210869216e783e94af0f7faa4a7a916b08eb6
         return i;
     }
 
     // takes in a number 0-5, returns a length-3 bitset, where bitset.get(0) is the MSB
     private static BitSet intToBitset(int i) {
+<<<<<<< HEAD
 <<<<<<< HEAD
         BitSet s = new BitSet(3);
 =======
@@ -117,6 +137,9 @@ public class RubiksCube {
         if (i % 2 == 1) s.set(3, true);
         i /= 2;
 >>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
+=======
+        BitSet s = new BitSet(3);
+>>>>>>> 977210869216e783e94af0f7faa4a7a916b08eb6
         if (i % 2 == 1) s.set(2, true);
         i /= 2;
         if (i % 2 == 1) s.set(1, true);
@@ -134,19 +157,28 @@ public class RubiksCube {
 =======
     private void setColor(int index, int number) {
         BitSet colorBitset = intToBitset(number);
+<<<<<<< HEAD
         for (int i = 0; i < 5; i++)
             cube.set(index * 5 + i, colorBitset.get(i));
 >>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
+=======
+        for (int i = 0; i < 3; i++)
+            cube.set(index * 3 + i, colorBitset.get(i));
+>>>>>>> 977210869216e783e94af0f7faa4a7a916b08eb6
     }
 
 
     // index from 0-23, returns a number from 0-5
     private int getColor(int index) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return bitsetToInt(cube.get(index * 3, (index + 1) * 3));
 =======
         return bitsetToInt(cube.get(index * 5, (index + 1) * 5));
 >>>>>>> 14343db58a6c6468c44ca7fdf45b96abbe17b18c
+=======
+        return bitsetToInt(cube.get(index * 3, (index + 1) * 3));
+>>>>>>> 977210869216e783e94af0f7faa4a7a916b08eb6
     }
 
     // given a list of rotations, return a rubik's cube with the rotations applied
